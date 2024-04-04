@@ -1,0 +1,342 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Message Form</title>-->
+<!--    <style>-->
+<!--        p {-->
+<!--        background-image: url('bg1.jpg')-->
+<!--        }-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+
+<!--            background-repeat: no-repeat;-->
+<!--            background-size: cover;-->
+<!--            background-color: #f0f0f0;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            transition: background-color 0.3s;-->
+<!--            min-height: 100vh; /* Ensure the body takes up at least the viewport height */-->
+<!--            position: relative;-->
+<!--        }-->
+
+<!--        /* Dark theme styles */-->
+<!--        body.dark-mode {-->
+<!--            background-color: #333;-->
+<!--            color: #fff;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+
+<!--        .backbtn {-->
+<!--            text-decoration: none;-->
+<!--            display: inline-block;-->
+<!--            padding: 10px 20px;-->
+<!--            background-color: #007BFF;-->
+<!--            color: #fff;-->
+<!--            border-radius: 5px;-->
+<!--            margin-left: 10px;-->
+<!--        }-->
+
+<!--        .backbtn:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            max-width: 400px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background for better readability */-->
+<!--            border-radius: 5px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        form label {-->
+<!--            display: block;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+
+<!--        form input[type="text"] {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            margin-bottom: 20px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+
+<!--        button[type="submit"] {-->
+<!--            display: block;-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            background-color: #007BFF;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        button[type="submit"]:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+
+<!--        a.download-link {-->
+<!--            display: block;-->
+<!--            text-align: center;-->
+<!--            margin-top: 20px;-->
+<!--            text-decoration: none;-->
+<!--            color: #007BFF;-->
+<!--        }-->
+
+<!--        a.download-link:hover {-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+
+<!--        /* Dark mode button styles */-->
+<!--        .theme-toggle {-->
+<!--            position: absolute;-->
+<!--            top: 20px;-->
+<!--            right: 20px;-->
+<!--            background: none;-->
+<!--            border: none;-->
+<!--            color: #007BFF;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 24px;-->
+<!--        }-->
+
+<!--        /* Footer styles */-->
+<!--        .footer {-->
+<!--            position: absolute;-->
+<!--            bottom: 0;-->
+<!--            width: 100%;-->
+<!--            text-align: center;-->
+<!--            background-color: #0078FF; /* Light blue background color */-->
+<!--            color: #fff;-->
+<!--            padding: 10px 0;-->
+<!--        }-->
+
+<!--        .footer p {-->
+<!--            font-size: 1.2rem;-->
+<!--            font-family: Centaur;-->
+<!--            letter-spacing: 1px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<button class="theme-toggle" onclick="toggleTheme()">&#9728;</button>-->
+
+<!--<a href="/" class="backbtn">Back</a>-->
+<!--<h1>Telegram Analysis</h1>-->
+
+<!--<form method="post" action="{% url 'telegramAnalysis' %}">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit">Submit</button>-->
+<!--</form>-->
+
+<!--<div class="footer">-->
+<!--    <p>Copyright &copy; 2023 Developed by <b>CDAC Hyderabad (March-2023)</b></p>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    function toggleTheme() {-->
+<!--        const body = document.body;-->
+<!--        body.classList.toggle('dark-mode');-->
+<!--    }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Form</title>
+    <style>
+        p {
+            background-image: url('bg1.jpg')
+        }
+        body {
+            font-family: Arial, sans-serif;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .backbtn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .backbtn:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Updated button styles */
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Loading spinner styles */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Initially hidden */
+        }
+
+        /* Updated button hover styles */
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        a.download-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a.download-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Dark mode button styles */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #007BFF;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Footer styles */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #0078FF;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .footer p {
+            font-size: 1.2rem;
+            font-family: Centaur;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()">&#9728;</button>
+
+<a href="/" class="backbtn">Back</a>
+<h1>Telegram Analysis</h1>
+
+<form method="post" action="{% url 'telegramAnalysis' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- Updated submit button with loading spinner -->
+    <button type="submit" class="submit-button" id="submit-button">
+        Submit
+        <!-- Loading spinner -->
+        <div class="loading-spinner" id="loading-spinner">
+            <img src="spinner.gif" alt="Loading">
+        </div>
+    </button>
+</form>
+
+<div class="footer">
+    <p>Copyright &copy; 2023 Developed by <b>CDAC Hyderabad (March-2023)</b></p>
+</div>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+    }
+
+    // Function to show loading spinner when form is submitted
+    document.querySelector("form").addEventListener("submit", function(event) {
+        // Prevent form submission for this example (remove this line in your actual code)
+        event.preventDefault();
+
+        // Hide the submit button and show the loading spinner
+        const submitButton = document.getElementById("submit-button");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        submitButton.style.display = "none";
+        loadingSpinner.style.display = "block";
+
+        // Simulate form submission (remove this setTimeout in your actual code)
+        setTimeout(function() {
+            // After a delay (simulating server response time), you can submit the form
+            document.querySelector("form").submit();
+        }, 2000); // Adjust the delay as needed
+    });
+</script>
+</body>
+</html>
+
